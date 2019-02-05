@@ -29,7 +29,7 @@ class CompanyUser extends SprykerCompanyUser implements CompanyUserInterface
         CompanyUserPluginExecutorInterface $companyUserPluginExecutor
     ) {
         parent::__construct($companyUserRepository, $companyUserEntityManager, $customerFacade, $companyUserPluginExecutor);
-        $this->companyUserRepository = $companyUserRepository;
+        $this->fondOfCompanyUserRepository = $companyUserRepository;
     }
 
     /**
