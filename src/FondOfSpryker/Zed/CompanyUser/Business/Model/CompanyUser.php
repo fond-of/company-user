@@ -21,14 +21,16 @@ class CompanyUser extends SprykerCompanyUser implements CompanyUserInterface
      * @param \FondOfSpryker\Zed\CompanyUser\Persistence\CompanyUserEntityManagerInterface $companyUserEntityManager
      * @param \Spryker\Zed\CompanyUser\Dependency\Facade\CompanyUserToCustomerFacadeInterface $customerFacade
      * @param \Spryker\Zed\CompanyUser\Business\Model\CompanyUserPluginExecutorInterface $companyUserPluginExecutor
+     * @param \Spryker\Zed\CompanyUserExtension\Dependency\Plugin\CompanyUserSavePreCheckPluginInterface[] $companyUserSavePreCheckPlugins
      */
     public function __construct(
         CompanyUserRepositoryInterface $companyUserRepository,
         CompanyUserEntityManagerInterface $companyUserEntityManager,
         CompanyUserToCustomerFacadeInterface $customerFacade,
-        CompanyUserPluginExecutorInterface $companyUserPluginExecutor
+        CompanyUserPluginExecutorInterface $companyUserPluginExecutor,
+        array $companyUserSavePreCheckPlugins
     ) {
-        parent::__construct($companyUserRepository, $companyUserEntityManager, $customerFacade, $companyUserPluginExecutor);
+        parent::__construct($companyUserRepository, $companyUserEntityManager, $customerFacade, $companyUserPluginExecutor, $companyUserSavePreCheckPlugins);
         $this->fondOfCompanyUserRepository = $companyUserRepository;
     }
 
